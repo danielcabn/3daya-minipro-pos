@@ -1,5 +1,6 @@
 package com.eksad.minpro.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -47,6 +48,10 @@ public class EmployeeModel {
 	
 	@Column(name="modified_on")
 	private Date modifiedOn;
+	
+	@Column(name="active")
+	private Boolean active;
+	
 
 	public Integer getId() {
 		return id;
@@ -108,15 +113,22 @@ public class EmployeeModel {
 		return createdOn;
 	}
 
-	public void setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
+	public void setCreatedOn(String createdOn) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date co = null;
+		try {
+			co = format.parse(createdOn); 
+			} catch (Exception e) {
+				this.createdOn= null;
+			}
+		this.createdOn=co;
 	}
 
 	public Integer getModifiedBy() {
 		return modifiedBy;
 	}
 
-	public void setModifiedBy(Integer modifiedBy) {
+	public void ModifiedBy(Integer modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
 
@@ -124,8 +136,15 @@ public class EmployeeModel {
 		return modifiedOn;
 	}
 
-	public void setModifiedOn(Date modifiedOn) {
-		this.modifiedOn = modifiedOn;
+	public void ModifiedOn(String modifiedOn) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date mo = null;
+		try {
+			mo = format.parse(modifiedOn); 
+			} catch (Exception e) {
+				this.modifiedOn= null;
+			}
+		this.modifiedOn=mo;
 	}
 	
 	
