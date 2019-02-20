@@ -16,8 +16,8 @@ import javax.persistence.TableGenerator;
 public class SupplierModel {
 	@Id
 	@Column(name="ID", columnDefinition="serial")
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_employee_seq")
-	@TableGenerator(name = "pos_mst_employee_seq", table = "tbl_squence", 
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_supplier_seq")
+	@TableGenerator(name = "pos_mst_supplier_seq", table = "tbl_squence", 
 	pkColumnName = "seq_id", valueColumnName = "seq_value", 
 	initialValue = 0, allocationSize=1)
 	private Integer id;
