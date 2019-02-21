@@ -20,7 +20,7 @@ public class SupplierModel {
 	@TableGenerator(name = "pos_mst_supplier_seq", table = "tbl_squence", 
 	pkColumnName = "seq_id", valueColumnName = "seq_value", 
 	initialValue = 0, allocationSize=1)
-	private Integer ida;
+	private Integer id;
 
 	@Column(name="name")
 	private String name;
@@ -62,11 +62,11 @@ public class SupplierModel {
 	private Boolean active;
 
 	public Integer getId() {
-		return ida;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		this.ida = id;
+		this.id = id;
 	}
 
 	public String getName() {
