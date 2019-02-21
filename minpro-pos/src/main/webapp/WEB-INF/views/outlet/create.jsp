@@ -4,7 +4,7 @@
 	<div class="col-md-12" style="border-top: 0px">
 		<div class="form-group">
 			<div class="col-md-12">
-				<input type="text" class="form-control" name="name" placeholder="Nama" />
+				<input type="text" class="form-control" name="name" placeholder="Outlet Name" />
 			</div>
 		</div>
 		
@@ -17,7 +17,9 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="provinceId" placeholder="Provinsi" />
+					<select name="provinceId" class="form-control" id="provinceId">
+						<option value="">=Select Province=</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -25,7 +27,9 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="regionId" placeholder="Region" />
+					<select name="regionId" class="form-control" id="regionId">
+						<option value="">=Select Region=</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -33,7 +37,9 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="districtId" placeholder="District" />
+					<select name="districtId" class="form-control" id="districtId">
+						<option value="">=Select District=</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -61,6 +67,9 @@
 				</div>
 			</div>
 		</div>
+		
+		<input type="hidden" class="form-control" name="active" value="false" />
+		
 	</div>
 	
 	<div class="modal-footer">
