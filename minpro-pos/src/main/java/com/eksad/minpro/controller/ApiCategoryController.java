@@ -74,7 +74,7 @@ public class ApiCategoryController {
 	}
 	
 	//post untuk http request method
-	@RequestMapping(value="/api/category", method=RequestMethod.POST)
+	@RequestMapping(value="/api/category/", method=RequestMethod.POST)
 	public ResponseEntity<CategoryModel> postInsert(@RequestBody CategoryModel item){
 		ResponseEntity<CategoryModel> result = null;
 		try {
@@ -88,7 +88,7 @@ public class ApiCategoryController {
 	}
 	
 	//ganti
-	@RequestMapping(value="/api/category", method=RequestMethod.PUT)
+	@RequestMapping(value="/api/category/", method=RequestMethod.PUT)
 	public ResponseEntity<CategoryModel> putUpdate(@RequestBody CategoryModel item){
 		ResponseEntity<CategoryModel> result = null;
 		try {
