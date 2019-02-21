@@ -47,18 +47,6 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	@Override
-	public void update(SupplierModel model) {
-		Session session = sessionFactory.getCurrentSession();
-		session.update(model);
-	}
-
-	@Override
-	public void delete(SupplierModel model) {
-		Session session = sessionFactory.getCurrentSession();
-		session.delete(model);
-	}
-
-	@Override
 	public List<SupplierModel> search(String key) {
 		// TODO Auto-generated method stub
 		return null;
