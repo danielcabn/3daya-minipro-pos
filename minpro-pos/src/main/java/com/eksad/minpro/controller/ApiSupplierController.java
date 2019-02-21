@@ -83,34 +83,4 @@ public class ApiSupplierController {
 		return result;
 	}
 	
-	@RequestMapping(value="/api/supplier/", method=RequestMethod.PUT)
-	public ResponseEntity<SupplierModel> putUpdate(@RequestBody SupplierModel item){
-		ResponseEntity<SupplierModel> result = null;
-		try {
-			this.service.update(item);
-			result = new ResponseEntity<SupplierModel>(item, HttpStatus.ACCEPTED);
-		} catch (Exception e) {
-			log.debug(e.getMessage(),e);
-			result = new ResponseEntity<SupplierModel>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		return result;
-	}
-	
-	@RequestMapping(value="/api/supplier/{catId}", method=RequestMethod.DELETE)
-	public ResponseEntity<SupplierModel> delApi(@PathVariable("catId") Integer vid){
-		ResponseEntity<SupplierModel> result = null;
-		try {
-			SupplierModel item = this.service.getById(vid);
-			if(item != null){
-				this.service.delete(item);
-				result = new ResponseEntity<SupplierModel>(item,HttpStatus.ACCEPTED);
-			}else {
-				result = new ResponseEntity<SupplierModel>(HttpStatus.NO_CONTENT);
-			}
-		} catch (Exception e) {
-			log.debug(e.getMessage(), e);
-			result = new ResponseEntity<SupplierModel>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		return result;
-	}
 }

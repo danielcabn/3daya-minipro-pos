@@ -11,11 +11,6 @@ public class SupplierController {
 		return "supplier/index";
 	}
 	
-	@RequestMapping(value="/supplier/detail")
-	public String detail() {	
-		return "supplier/detail";
-	}
-	
 	@RequestMapping(value="/supplier/create")
 	public String create() {
 		return "supplier/create";
@@ -26,9 +21,5 @@ public class SupplierController {
 		return "supplier/edit";
 	}
 	
-	@RequestMapping(value="/supplier/delete")
-	public String delete() {
-		return "supplier/delete";
-	}
 	
 }
