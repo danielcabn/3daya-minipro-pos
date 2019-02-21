@@ -11,8 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name="pos_mst_employee")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id", scope=EmployeeModel.class)
 public class EmployeeModel {
 	@Id
 	@Column(name="ID", columnDefinition="serial")
@@ -26,7 +30,7 @@ public class EmployeeModel {
 	private String firstName;
 	
 	@Column(name="last_name")
-	private String nameName;
+	private String lastName;
 	
 	@Column(name="email")
 	private String email;
@@ -69,12 +73,12 @@ public class EmployeeModel {
 		this.firstName = firstName;
 	}
 
-	public String getNameName() {
-		return nameName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setNameName(String nameName) {
-		this.nameName = nameName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -136,7 +140,7 @@ public class EmployeeModel {
 		return modifiedOn;
 	}
 
-	public void ModifiedOn(String modifiedOn) {
+	public void setModifiedOn(String modifiedOn) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date mo = null;
 		try {

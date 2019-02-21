@@ -10,6 +10,7 @@ import com.eksad.minpro.dao.EmployeeDao;
 import com.eksad.minpro.model.EmployeeModel;
 import com.eksad.minpro.service.EmployeeService;
 
+
 @Service
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {
@@ -35,11 +36,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void update(EmployeeModel model) {
 		this.dao.update(model);
-	}
-
-	@Override
-	public void delete(EmployeeModel model) {
-		this.dao.delete(model);
 	}
 	
 }
