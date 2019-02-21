@@ -26,7 +26,11 @@ public class ApiCategoryController {
 	@RequestMapping(value="/api/category/", method=RequestMethod.GET)
 	public ResponseEntity<List<CategoryModel>> list(){
 		log.debug("test");
+<<<<<<< HEAD
 		//methoth list, retunt type responEntity,typedata refrest karna dibuat di dalam class
+=======
+		//methoth list, retunt type  responEntity,typedata refrest karna dibuat di dalam class
+>>>>>>> category
 		ResponseEntity<List<CategoryModel>> result = null;
 		//try : mencoba
 		try {
@@ -74,7 +78,11 @@ public class ApiCategoryController {
 	}
 	
 	//post untuk http request method
+<<<<<<< HEAD
 	@RequestMapping(value="/api/category", method=RequestMethod.POST)
+=======
+	@RequestMapping(value="/api/category/", method=RequestMethod.POST)
+>>>>>>> category
 	public ResponseEntity<CategoryModel> postInsert(@RequestBody CategoryModel item){
 		ResponseEntity<CategoryModel> result = null;
 		try {

@@ -2,10 +2,22 @@
 <div class="box box-info">
 	<div class="box-header">
 		<h3 class="box-title">Category</h3>
+<<<<<<< HEAD
 		<div class="box-tools">
 			<button type="button" id="btn-add" class="btn btn-success btn-sm">
 				<i class="fa fa-plus"></i>
 			</button>
+=======
+	</div>
+		
+		<div class="box-body">
+		<div class="box-tools" style="margin-top: -10px">
+			<input type="text" placeholder="Search" id="name" />
+			<button type="button" id="btn-add" class="btn btn-success btn-sm pull-right">
+				<i class="fa fa-plus"></i>
+			</button>
+	
+>>>>>>> category
 		</div>
 	</div>
 	<div class="box-body">
@@ -78,8 +90,11 @@
 						'<td>'+ item.id+'</td>'+
 						'<td class="col-md-1">'+
 							'<button type="button" class="btn btn-edit btn-warning btn-xs" value="'+ item.id +'"><i class="fa fa-edit"></i></button> '+
+<<<<<<< HEAD
 							'<button type="button" class="btn btn-detail btn-success btn-xs" value="'+ item.id +'"><i class="fa fa-eye"></i></button> '+
 							'<button type="button" class="btn btn-delete btn-danger btn-xs" value="'+ item.id +'"><i class="fa fa-trash"></i></button> '+
+=======
+>>>>>>> category
 						'</td>'+
 						'</tr>';
 					$("#list-data").append(dataRow);
@@ -125,8 +140,11 @@
 			// data type berupa JSON
 			dataType:'json',
 			success : function(dataApi){
+<<<<<<< HEAD
 				$('#modal-data').find('#id').val(dataApi.id);
 				$('#modal-data').find('#code').val(dataApi.code);
+=======
+>>>>>>> category
 				$('#modal-data').find('#name').val(dataApi.name);
 				
 				console.log(dataApi);
