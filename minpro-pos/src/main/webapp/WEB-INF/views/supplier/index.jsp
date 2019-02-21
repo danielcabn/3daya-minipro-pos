@@ -104,7 +104,7 @@
 						'<td>'+ item.phone +'</td>'+
 						'<td>'+ item.email +'</td>'+
 						'<td class="col-md-1">'+
-							'<button type="button" class="btn btn-edit btn-warning btn-xs" value="'+ item.id +'">Edit</button> '+
+							'<button type="button"class="btn btn-edit btn-warning btn-xs" value="'+ item.id +'">Edit</button> '+
 						'</td>'+
 						'</tr>';
 					$("#list-data").append(dataRow);

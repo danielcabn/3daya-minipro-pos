@@ -32,20 +32,11 @@ public class SupplierServiceImpl implements SupplierService {
 		this.dao.insert(model);
 	}
 
-	@Override
-	public void update(SupplierModel model) {
-		this.dao.update(model);
-	}
-
-	@Override
-	public void delete(SupplierModel model) {
-		this.dao.delete(model);
-	}
-
 
 	@Override
 	public List<SupplierModel> search(String key) {
-		return this.dao.search(key);
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

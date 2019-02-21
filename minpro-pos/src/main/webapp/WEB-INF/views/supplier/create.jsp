@@ -17,7 +17,9 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="provinceId" placeholder="Provinsi" />
+					<select name="provinceId" id="provinceId" class="form-control">
+						<option value="">Province</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -25,7 +27,9 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="regionId" placeholder="Region" />
+				<select type="text" name="regionId" id=""regionId"" class="form-control">
+						<option value="">Region</option>
+				</select>
 				</div>
 			</div>
 		</div>
@@ -33,7 +37,9 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="districtId" placeholder="District" />
+					<select name="districtId" id=""districtId"" class="form-control">
+						<option value="">District</option>
+				</select>
 				</div>
 			</div>
 		</div>

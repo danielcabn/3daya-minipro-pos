@@ -9,45 +9,57 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.eksad.minpro.dao.SupplierDao;
-import com.eksad.minpro.model.SupplierModel;
+import com.eksad.minpro.dao.CategoryDao;
+import com.eksad.minpro.model.CategoryModel;
 
 @Repository
-public class SupplierDaoImpl implements SupplierDao {
+public class CategoryDaoImpl implements CategoryDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<SupplierModel> getList() {
+	public List<CategoryModel> getList() {
 		Session session = sessionFactory.getCurrentSession();
 		// HQl artinya Hibernate Query language
 		// Hibernate artinya ORM ( Object Relation Mapping )
-		String hql = "select ca from SupplierModel ca";
+		String hql = "select ca from CategoryModel ca";
 		Query query = session.createQuery(hql);
-		List<SupplierModel> result = query.getResultList();
+		List<CategoryModel> result = query.getResultList();
 		return result;
 	}
 
 	@Override
-	public SupplierModel getById(Integer id) {
+	public CategoryModel getById(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
 		// HQl artinya Hibernate Query language
 		// Hibernate artinya ORM ( Object Relation Mapping )
-		String hql = "select ca from SupplierModel ca where ca.id=:id";
+		String hql = "select ca from CategoryModel ca where ca.id=:id";
 		Query query = session.createQuery(hql);
 		query.setParameter("id", id);
-		SupplierModel result = (SupplierModel) query.getSingleResult();
+		CategoryModel result = (CategoryModel) query.getSingleResult();
 		return result;
 	}
 
 	@Override
-	public void insert(SupplierModel model) {
+	public void insert(CategoryModel model) {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(model);
 	}
 
 	@Override
-	public List<SupplierModel> search(String key) {
+	public void update(CategoryModel model) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(model);
+	}
+
+	@Override
+	public void delete(CategoryModel model) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(model);
+	}
+
+	@Override
+	public List<CategoryModel> search(String key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
