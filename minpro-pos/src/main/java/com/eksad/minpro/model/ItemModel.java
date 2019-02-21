@@ -122,13 +122,11 @@ public class ItemModel {
 		this.modifiedOn=mo;
 	}
 
-	public boolean isActive() {
+	public Boolean getActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	
-
 }

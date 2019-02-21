@@ -11,7 +11,7 @@
 		<div class="box-tools">
 			<button type="button" id="export"  class="btn btn-primary" >Export</button>
 			
-			<button type="button" id="create" class="btn btn-primary" >Create</button>
+			<button type="button" id="btn-add" class="btn btn-primary" >Create</button>
 		</div>
 	</div>
 	 <form>
@@ -77,4 +77,69 @@
 			}
 		});
 	}
+		
+		$("#btn-add").click(function(){
+			$.ajax({
+				url:'${contextName}/item/create',
+				type:'get',
+				dataType:'html',
+				success : function(result){
+					//mengganti judul modal
+					$("#modal-title").html("Add New Item");
+					//mengisi content dengan variable result
+					$("#modal-data").html(result);
+					//menampilkan modal pop up
+					$("#modal-form").modal('show');
+					loadCategory();
+				}
+			});
+		});
+		
+		function addData($form){
+			// memangil method getFormData dari file
+			// resources/dist/js/map-form-objet.js
+			var dataForm = getFormData($form);
+			$.ajax({
+				// url ke api/category/
+				url:'${contextName}/api/item',
+				type:'post',
+				// data type berupa JSON
+				dataType:'json',
+				// mengirim parameter data
+				data:JSON.stringify(dataForm),
+				// mime type 
+				contentType: 'application/json',
+				success : function(result){
+					//menutup modal
+					$("#modal-form").modal('hide');
+					// panggil method load data, untuk melihat data terbaru
+					loadData();
+				}
+			});
+			console.log(dataForm);
+		}
+		
+
+		function loadCategoryr($selected){
+			$.ajax({
+				// url ke api/product/
+				url:'${contextName}/api/category',
+				type:'get',
+				// data type berupa JSON
+				dataType:'json',
+				success : function(result){
+					// empty data first
+					$("#categoryId").empty();
+					$("#categoryId").append('<option value="">=Select Category=</option>');
+					// looping data
+					$.each(result, function(index, item){
+						if($selected == item.id){
+							$("#categoryId").append('<option value="'+ item.id +'" selected="selected">'+item.name +'</option>');
+						}else {
+							$("#categoryId").append('<option value="'+ item.id +'">'+ item.name +'</option>');
+						}
+					});
+				}
+			});
+		}
 	</script>
