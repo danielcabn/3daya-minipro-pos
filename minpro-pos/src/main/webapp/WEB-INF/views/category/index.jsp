@@ -2,12 +2,8 @@
 <div class="box box-info">
 	<div class="box-header">
 		<h3 class="box-title">Category</h3>
-	</div>
-		
-		<div class="box-body">
-		<div class="box-tools" style="margin-top: -10px">
-			<input type="text"  id="txt-search" placeholder="Search" onKeypress="cari($(this).val());"/>
-			<button type="button" id="btn-add" class="btn btn-success btn-sm pull-right">
+		<div class="box-tools">
+			<button type="button" id="btn-add" class="btn btn-success btn-sm">
 				<i class="fa fa-plus"></i>
 			</button>
 	
