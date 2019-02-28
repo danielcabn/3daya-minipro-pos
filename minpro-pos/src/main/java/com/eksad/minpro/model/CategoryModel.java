@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="pos_mst_category")
@@ -17,8 +21,8 @@ import javax.persistence.TableGenerator;
 public class CategoryModel {
 	@Id
 	@Column(name="ID", columnDefinition="serial")
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_category")
-	@TableGenerator(name = "pos_mst_category_seq", table = "tbl_squance", 
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_category_seq")
+	@TableGenerator(name = "pos_mst_category_seq", table = "tbl_squence", 
 	pkColumnName = "seq_id", valueColumnName = "seq_value",
 	initialValue = 0, allocationSize=1)
 	private Integer id;
@@ -30,12 +34,16 @@ public class CategoryModel {
 	private Integer createdBy;
 	
 	@Column(name="created_on")
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	private Date createdOn;
 	
 	@Column(name="modified_by")
 	private Integer modifiedBy;
 	
 	@Column(name="modified_on")
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	private Date modifiedOn;
 	
 	@Column(name="active")
@@ -81,7 +89,7 @@ public class CategoryModel {
 	public Date getModifiedOn() {
 		return modifiedOn;
 	}
-	public void ModifiedOn(String modifiedOn) {
+	public void setModifiedOn(String modifiedOn) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date mo = null;
 		try {

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.eksad.minpro.service.CategoryService;
 
-
 @Controller
 public class CategoryController {
 	private Log log = LogFactory.getLog(getClass()); 

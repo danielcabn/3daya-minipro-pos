@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.eksad.minpro.dao.EmployeeDao;
 import com.eksad.minpro.model.EmployeeModel;
 
+
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
 	@Autowired
@@ -45,16 +46,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(model);
 	}
-
+	
 	@Override
 	public void update(EmployeeModel model) {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(model);
 	}
 
-	@Override
-	public void delete(EmployeeModel model) {
-		Session session = sessionFactory.getCurrentSession();
-		session.delete(model);
-	}
+
+
 }

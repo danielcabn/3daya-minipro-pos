@@ -9,7 +9,7 @@
 					class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>Daniel Cristofer</p>
+				<p>Riri Novita</p>
 				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
@@ -36,14 +36,20 @@
 					<span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
 				</a>
 				<ul class="treeview-menu">
+					<li><a href="${contextName}/employee"><i class="fa fa-users"></i> Employee</a></li>
 					<li><a href="${contextName}/category"><i class="fa fa-circle-o"></i> Category</a></li>
-					<li><a href="${contextName}/product"><i class="fa fa-circle-o"></i> Product</a></li>
-					<li><a href="${contextName}/package"><i class="fa fa-circle-o"></i> Package</a></li>
 					<li><a href="${contextName}/supplier"><i class="fa fa-circle-o"></i> Supplier</a></li>
-					<li><a href="${contextName}/purchaseorder"><i class="fa fa-circle-o"></i> Purchase Order</a></li>
+					<li><a href="${contextName}/outlet"><i class="fa fa-circle-o"></i> Outlet</a></li>
+					<li><a href="${contextName}/item"><i class="fa fa-circle-o"></i> Item</a></li>
+					<li><a href="${contextName}/adjustment"><i class="fa fa-circle-o"></i> Adjustment</a></li>
+					<li><a href="${contextName}/purchaserequest"><i class="fa fa-laptop"></i> Purchase Request</a></li>
+					<li><a href="${contextName}/po"><i class="fa fa-circle-o"></i> Purchase Order</a></li>
+					<li><a href="${contextName}/ts"><i class="fa fa-circle-o"></i> Transfer Stock</a></li>
+					
 					
 				</ul>
-			</li>		
+			</li>
+			<li><a href="${contextName}/logout">Logout</a></li>		
 		</ul>
 	</section>
 	<!-- /.sidebar -->
