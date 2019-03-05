@@ -4,20 +4,20 @@
 	<div class="col-md-12" style="border-top: 0px">
 		<div class="form-group">
 			<div class="col-md-12">
-				<input type="text" class="form-control" name="name" placeholder="Nama" />
+				<input type="text" class="form-control" name="name" placeholder="Nama" id="name" />
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<div class="col-md-12">
-				<textarea rows="4" cols="65" name="address" placeholder="Address"></textarea>
+				<textarea rows="4" cols="63" name="address" placeholder="Address" id="address" style="padding: 10px"></textarea>
 			</div>
 		</div>
 	
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<select name="provinceId" id="provinceId" class="form-control">
+					<select name="provinceId" id="provinceId" class="form-control" onChange="getRegionById($(this).val());">
 						<option value="">Province</option>
 					</select>
 				</div>
@@ -27,7 +27,7 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-				<select type="text" name="regionId" id=""regionId"" class="form-control">
+				<select name="regionId" id="regionId" class="form-control" onChange="getDistrictById($(this).val());">
 						<option value="">Region</option>
 				</select>
 				</div>
@@ -37,7 +37,7 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<select name="districtId" id=""districtId"" class="form-control">
+					<select name="districtId" id="districtId" class="form-control">
 						<option value="">District</option>
 				</select>
 				</div>
@@ -47,7 +47,7 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="postalCode" placeholder="Postal Code" />
+					<input type="text" class="form-control" name="postalCode" placeholder="Postal Code" id="postalCode"/>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="phone" placeholder="Phone" />
+					<input type="text" class="form-control" name="phone" placeholder="Phone" id="phone"/>
 				</div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<div class="col-md-12">
-					<input type="text" class="form-control" name="email" placeholder="Email" />
+					<input type="text" class="form-control" name="email" placeholder="Email" id="email" />
 				</div>
 			</div>
 		</div>

@@ -17,6 +17,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<SupplierModel> getList() {
 		Session session = sessionFactory.getCurrentSession();
@@ -29,7 +30,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	@Override
-	public SupplierModel getById(Integer id) {
+	public SupplierModel getById(Long id) {
 		Session session = sessionFactory.getCurrentSession();
 		// HQl artinya Hibernate Query language
 		// Hibernate artinya ORM ( Object Relation Mapping )
@@ -46,10 +47,21 @@ public class SupplierDaoImpl implements SupplierDao {
 		session.save(model);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<SupplierModel> search(String key) {
-		// TODO Auto-generated method stub
-		return null;
+		String keyLower = key.toLowerCase();
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "select x from SupplierModel x where lower(x.name) like : keySearch";
+		Query query = session.createQuery(hql);
+		query.setParameter("keySearch", "%"+keyLower+"%");
+		return query.getResultList();
+	}
+	
+	@Override
+	public void update(SupplierModel model) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(model);
 	}
 
 }

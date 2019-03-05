@@ -2,70 +2,94 @@ package com.eksad.minpro.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="pos_mst_supplier")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope=SupplierModel.class)
 public class SupplierModel {
 	@Id
-	@Column(name="ID", columnDefinition="serial")
+	@Column(name="ID", columnDefinition="serial", nullable=false)
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_supplier_seq")
 	@TableGenerator(name = "pos_mst_supplier_seq", table = "tbl_squence", 
 	pkColumnName = "seq_id", valueColumnName = "seq_value", 
 	initialValue = 0, allocationSize=1)
-	private Integer id;
+	private Long id;
 
-	@Column(name="name")
+	@Column(name="name", nullable=false, length=50)
 	private String name;
 	
-	@Column(name="address")
+	@Column(name="address", nullable=true, length=255)
 	private String address;
 	
-	@Column(name="phone")
+	@Column(name="phone", nullable=true)
 	private String phone;
 	
-	@Column(name="email")
+	@Column(name="email", nullable=true)
 	private String email;
 	
-	@Column(name="province_id")
-	private Integer provinceId;
+	@Column(name="province_id", nullable=false)
+	private Long provinceId;
 	
-	@Column(name="region_id")
-	private Integer regionId;
+	@Column(name="region_id", nullable=false, length=6)
+	private Long regionId;
 	
-	@Column(name="district_id")
-	private Integer districtId;
+	@Column(name="district_id", nullable=false, length=16)
+	private Long districtId;
 	
-	@Column(name="postal_code")
+	@Column(name="postal_code", nullable=false, length=50)
 	private String postalCode;
 	
-	@Column(name="created_by")
-	private Integer createdBy;
+	@Column(name="created_by", nullable=true)
+	private Long createdBy;
 	
-	@Column(name="created_on")
+	@Column(name="created_on", nullable=true)
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date createdOn;
 	
-	@Column(name="modified_by")
-	private Integer modifiedBy;
+	@Column(name="modified_by", nullable=true)
+	private Long modifiedBy;
 	
-	@Column(name="modified_on")
+	@Column(name="modified_on", nullable=true)
 	private Date modifiedOn;
 	
-	@Column(name="active")
+	@Column(name="active", nullable=false)
 	private Boolean active;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "supplier")
+	private List<PoModel> listPo;
+	
+	public List<PoModel> getListPo() {
+		return listPo;
+	}
 
-	public Integer getId() {
+	public void setListPo(List<PoModel> listPo) {
+		this.listPo = listPo;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -101,27 +125,27 @@ public class SupplierModel {
 		this.email = email;
 	}
 
-	public Integer getProvinceId() {
+	public Long getProvinceId() {
 		return provinceId;
 	}
 
-	public void setProvinceId(Integer provinceId) {
+	public void setProvinceId(Long provinceId) {
 		this.provinceId = provinceId;
 	}
 
-	public Integer getRegionId() {
+	public Long getRegionId() {
 		return regionId;
 	}
 
-	public void setRegionId(Integer regionId) {
+	public void setRegionId(Long regionId) {
 		this.regionId = regionId;
 	}
 
-	public Integer getDistrictId() {
+	public Long getDistrictId() {
 		return districtId;
 	}
 
-	public void setDistrictId(Integer districtId) {
+	public void setDistrictId(Long districtId) {
 		this.districtId = districtId;
 	}
 
@@ -133,11 +157,11 @@ public class SupplierModel {
 		this.postalCode = postalCode;
 	}
 
-	public Integer getCreatedBy() {
+	public Long getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(Integer createdBy) {
+	public void setCreatedBy(Long createdBy) {
 		this.createdBy = createdBy;
 	}
 
@@ -156,19 +180,19 @@ public class SupplierModel {
 		this.createdOn = co;
 	}
 
-	public Integer getModifiedBy() {
+	public Long getModifiedBy() {
 		return modifiedBy;
 	}
 
-	public void setModifiedBy(Integer modifiedBy) {
+	public void setModifiedBy(Long modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public Date getModeifiedOn() {
+	public Date getModifiedOn() {
 		return modifiedOn;
 	}
 
-	public void setModeifiedOn(String modifiedOn) {
+	public void setModifiedOn(String modifiedOn) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date mo = null;
 		try {

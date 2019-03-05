@@ -2,22 +2,29 @@ package com.eksad.minpro.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "pos_mst_item")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class ItemModel {
 	@Id
 	@Column(name="ID", columnDefinition="serial")
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_item_seq")
-	@TableGenerator(name = "pos_mst_item_seq", table = "tbl_squance", 
+	@TableGenerator(name = "pos_mst_item_seq", table = "tbl_squence", 
 	pkColumnName = "seq_id", valueColumnName = "seq_value",
 	initialValue = 0, allocationSize=1)
 	private Integer id;
@@ -43,6 +50,19 @@ public class ItemModel {
 	
 	@Column(name= "active")
 	private Boolean active;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="item")
+	private List<VariantModel> listVariant;
+	
+
+	public List<VariantModel> getListVariant() {
+		return listVariant;
+	}
+
+	public void setListVariant(List<VariantModel> listVariant) {
+		this.listVariant = listVariant;
+	}
 
 	public Integer getId() {
 		return id;
@@ -60,6 +80,7 @@ public class ItemModel {
 		this.name = name;
 	}
 
+	
 	public String getCategoryId() {
 		return categoryId;
 	}
@@ -129,4 +150,6 @@ public class ItemModel {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
+	
+
 }

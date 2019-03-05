@@ -22,7 +22,7 @@ public class CategoryModel {
 	@Id
 	@Column(name="ID", columnDefinition="serial")
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "pos_mst_category_seq")
-	@TableGenerator(name = "pos_mst_category_seq", table = "tbl_squance", 
+	@TableGenerator(name = "pos_mst_category_seq", table = "tbl_squence", 
 	pkColumnName = "seq_id", valueColumnName = "seq_value",
 	initialValue = 0, allocationSize=1)
 	private Integer id;

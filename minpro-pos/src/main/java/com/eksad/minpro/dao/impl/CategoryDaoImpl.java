@@ -60,8 +60,13 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	@Override
 	public List<CategoryModel> search(String key) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		//name : properti yang ada di pecagesmodel
+		String hql = "select x from CategoryModel x where x.name like :keySearch";
+		//yang ada :sambung ":keySearch" adalah parameter
+		Query query = session.createQuery(hql);
+		query.setParameter("keySearch", "%"+key+"%");		
+		return query.getResultList();
 	}
 
 }

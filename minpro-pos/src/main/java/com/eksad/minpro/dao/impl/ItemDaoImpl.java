@@ -9,8 +9,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.eksad.minpro.dao.ItemDao;
-import com.eksad.minpro.model.CategoryModel;
+import com.eksad.minpro.model.InvenModel;
 import com.eksad.minpro.model.ItemModel;
 
 @Repository
@@ -29,13 +30,52 @@ public class ItemDaoImpl implements ItemDao {
 		List<ItemModel> result = query.getResultList();
 		return result;
 	}
-
+	
+	@Override
+	public List<InvenModel> getListInven() {
+		Session session = sessionFactory.getCurrentSession();
+		// HQl => Hibernate Query language
+		// Hibernate => ORM ( Object Relation Mapping )
+		String hql = "select ct from InvenModel ct";
+		Query query = session.createQuery(hql);
+		List<InvenModel> result = query.getResultList();
+		return result;
+	}
+	
 	@Override
 	public void insert(ItemModel model) {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(model);
+		
 	}
 
 
+	public List<ItemModel> search(String key) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "select pk from ItemModel pk where pk.name like :keySearch"; 
+		Query query = session.createQuery(hql);
+		query.setParameter("keySearch", "%"+key+"%");
+		return query.getResultList();
+	}
+
+
+	@Override
+	public void update(ItemModel model) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(model);
+		
+	}
+
+	@Override
+	public ItemModel getById(Integer id) {
+		Session session = sessionFactory.getCurrentSession();
+		// HQl artinya Hibernate Query language
+		// Hibernate artinya ORM ( Object Relation Mapping )
+		String hql = "select ca from ItemModel ca where ca.id=:id";
+		Query query = session.createQuery(hql);
+		query.setParameter("id", id);
+		ItemModel result = (ItemModel) query.getSingleResult();
+		return result;
+	}
 	
 }

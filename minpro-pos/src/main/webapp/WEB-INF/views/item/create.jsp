@@ -7,31 +7,33 @@
 		<h3 class="box-title">New Purchase Order</h3>
 	</div>	
 	<div class="box-body">
-		<div class="row pull-right">
+		<div class="col-md-12">
+			<div class="col-md-2">Image</div>
+			
 			<div class="col-md-10">
 				<div class="form-group">
-					<label class="control-label col-md-3">Name</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" name="name" id="name" />
+					<label>Name</label>
+					<div>
+						<input type="text" class="form-control" name="io[name]" id="name" />
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-md-3">Category</label>
-					<div class="col-md-9">
-						<select name="categoryId" id="categoryId" class="form-control">
+					<label>Category</label>
+					<div>
+						<select name="io[categoryId]" id="categoryId" class="form-control">
 							<option value="">Category</option>
 						</select>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="form-group">
-			<h3 class="box-title col-md-8">VARIANT</h3>
-			<div class="col-md-4">
-				<button type="button" class="btn btn-primary btn-sm pull-right" id="btn-add-product"> Add Variant</button>
-			</div>
+		
+		<div class="col-md-12">
+			<h3 class="col-md-2" style="margin: 0">VARIANT</h3>
+			<button type="button" class="btn btn-primary pull-right" onClick="addVariant()" id="btn-add-variant"> Add Variant</button>
 		</div>
+	
 		<table class="table table-stripped table-bordered">
 			<thead>
 				<tr>
@@ -39,6 +41,7 @@
 					<th>Unit Price</th>
 					<th>SKU</th>
 					<th>Beginning Stock</th>
+					<th>Alert at</th>
 					<th>#</th>
 				</tr>
 			</thead>

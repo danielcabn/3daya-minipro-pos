@@ -23,7 +23,7 @@ public class SupplierServiceImpl implements SupplierService {
 
 	
 	@Override
-	public SupplierModel getById(Integer id) {
+	public SupplierModel getById(Long id) {
 		return this.dao.getById(id);
 	}
 
@@ -35,8 +35,12 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public List<SupplierModel> search(String key) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.dao.search(key);
 	}
 	
+	@Override
+	public void update(SupplierModel model) {
+		this.dao.update(model);
+	}
+
 }

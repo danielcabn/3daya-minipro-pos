@@ -8,11 +8,12 @@
 		</div>
 	</div>
 		
-	<input type="hidden" class="form-control" name="active" value="false" />
+	<input type="hidden" class="form-control" name="active" value="true" />
 	
 	<div class="modal-footer">
-		<button type="button" onClick="addData($('#form-create'))" class="btn btn-primary pull-left">Simpan</button>
-		<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+	
+		<button type="button" onClick="addData($('#form-create'))" class="btn btn-primary">Save</button>
+		<button type="reset" class="btn btn-primary pull-left">Cancel</button>
 	</div>
 </form>
 <!-- Form Selesai -->
